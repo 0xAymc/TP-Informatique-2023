@@ -4,13 +4,14 @@
  *
  * \section Introduction
  *      Utilisaion du port série sur Arduino Uno
- * \author
- *      MCHARFI Ayman
+
+ * \section deviceinfo Informations sur les composants 
+ *      Utilisation Arduino Uno
  *
- * $Name: TP1 $
- * $Revision: 1.0 $
- * $Date: 23/11/2023 $  \n
  ******************************************************************************/
+
+
+/* This file has been prepared for Doxygen automatic documentation generation.*/
 
 /*! \file *********************************************************************
  *
