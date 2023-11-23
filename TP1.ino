@@ -1,4 +1,16 @@
 /* This file has been prepared for Doxygen automatic documentation generation.*/
+/*! \mainpage *********************************************************************
+ *
+ * \section Introduction
+ *      Utilisaion du port série sur Arduino Uno
+
+ * \section deviceinfo Informations sur les composants 
+ *      Utilisation Arduino Uno
+ *
+ ******************************************************************************/
+
+
+/* This file has been prepared for Doxygen automatic documentation generation.*/
 /*! \file *********************************************************************
  *
  * \brief
