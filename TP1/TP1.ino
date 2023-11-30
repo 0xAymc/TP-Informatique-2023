@@ -13,6 +13,7 @@
  * $Date: 23/11/2023 $  \n
  ******************************************************************************/
 
+
 /*! \file *********************************************************************
  *
  * \brief
@@ -31,14 +32,17 @@
 #define MYUBRR FOSC/16/BAUD-1
 
 
-/*! \brief Fonction Main
- *
- *  La fonction main permet d'initialiser l'USART
- *  et d'effectuer la transmission
- */
+
 
 unsigned char data;
 unsigned char flag = 0;
+
+/*! \brief Fonction d'interruption
+ *
+ * Permet d'effectuer la reception uniquement lorsqu'on transmet
+ * Cela evite que le microprocesseur reste bloqué sur l'attente d'une transmission 
+ *
+ */
 
 
 ISR(USART_RX_vect){
@@ -47,6 +51,11 @@ flag = 1;
 PORTB = 0b00100000;
 }
 
+/*! \brief Fonction Main
+ *
+ *  La fonction main permet d'initialiser l'USART
+ *  et d'effectuer son code
+ */
 
 int main(void)
 {
@@ -66,6 +75,12 @@ _delay_ms(1);
 
 }
 
+/*! \brief Fonction USART_puts
+ *
+ *  La fonction permet de lire et transmettre une chaine de caractères
+ *  Elle pointe vers chaque char de la chaine
+ */
+
 void USART_puts(unsigned char *str)
 {
 do
@@ -73,6 +88,12 @@ do
 USART_Transmit(*str);
 } while (*++str!=0);
 }
+
+/*! \brief Fonction USART_putsln
+ *
+ *  La fonction permet de faire la même chose que la fonction USART_puts mais avec un retour a la ligne a chaque envoi
+ *  
+ */
 
 void USART_putsln(unsigned char *str)
 {
@@ -112,6 +133,11 @@ while (!(UCSR0A & (1<<UDRE0)))
 /* Put data into buffer, sends the data */
 UDR0 = data;
 }
+
+/*! \brief Fonction de reception.
+ *
+ *  Permet d'effectuer la reception
+ */
 
 unsigned char USART_Receive(void)
 {
