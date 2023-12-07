@@ -136,9 +136,9 @@ void USART3_Init(unsigned int ubrr)
 UBRR3H = (unsigned char)(ubrr>>8);
 UBRR3L = (unsigned char)ubrr;
 /*Enable receiver and transmitter */
-UCSR3B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
+UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
 /* Set frame format: 8data, 2stop bit */
-UCSR3C = (3<<UCSZ00);
+UCSR3C = (3<<UCSZ30);
 }
 
 /*! \brief Fonction de transmission.
