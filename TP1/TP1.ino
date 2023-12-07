@@ -35,7 +35,8 @@
 
 
 unsigned char data;
-unsigned char flag = 0;
+unsigned char flag0 = 0;
+unsigned char flag3 = 0;
 
 /*! \brief Fonction d'interruption
  *
@@ -45,10 +46,14 @@ unsigned char flag = 0;
  */
 
 
-ISR(USART_RX_vect){
+ISR(USART0_RX_vect){
 data = UDR0;
-flag = 1;
-PORTB = 0b00100000;
+flag0 = 1;
+}
+
+ISR(USART3_RX_vect){
+data = UDR3;
+flag3 = 1;
 }
 
 /*! \brief Fonction Main
@@ -60,15 +65,19 @@ PORTB = 0b00100000;
 int main(void)
 {
 
-USART_Init(MYUBRR);
+USART0_Init(MYUBRR);
+USART3_Init(MYUBRR);
 
 sei();
 
 while(1){
-  if (flag){
-  USART_putsln("Bonjour");
-  //_delay_ms(100);
-  flag = 0;
+  if (flag3){
+  USART0_Transmit(data);
+  flag3 = 0;
+  }
+  if (flag0){
+  USART3_Transmit(data);
+  flag0 = 0;
   }
 _delay_ms(1);
 }
@@ -81,6 +90,7 @@ _delay_ms(1);
  *  Elle pointe vers chaque char de la chaine
  */
 
+/*
 void USART_puts(unsigned char *str)
 {
 do
@@ -88,6 +98,7 @@ do
 USART_Transmit(*str);
 } while (*++str!=0);
 }
+*/
 
 /*! \brief Fonction USART_putsln
  *
@@ -95,19 +106,20 @@ USART_Transmit(*str);
  *  
  */
 
-void USART_putsln(unsigned char *str)
+/*void USART_putsln(unsigned char *str)
 {
 USART_puts(str);
 USART_Transmit('\n');
 USART_Transmit('\r');
 }
+*/
 
 /*! \brief Initialisation de l'USART.
  *
  *  Permet de configurer les registres
  */
 
-void USART_Init(unsigned int ubrr)
+void USART0_Init(unsigned int ubrr)
 {  
 /*Set baud rate */
 UBRR0H = (unsigned char)(ubrr>>8);
@@ -116,8 +128,17 @@ UBRR0L = (unsigned char)ubrr;
 UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
 /* Set frame format: 8data, 2stop bit */
 UCSR0C = (3<<UCSZ00);
-DDRB = 0b00100000;
-PORTB = 0b00000000;
+}
+
+void USART3_Init(unsigned int ubrr)
+{  
+/*Set baud rate */
+UBRR3H = (unsigned char)(ubrr>>8);
+UBRR3L = (unsigned char)ubrr;
+/*Enable receiver and transmitter */
+UCSR3B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
+/* Set frame format: 8data, 2stop bit */
+UCSR3C = (3<<UCSZ00);
 }
 
 /*! \brief Fonction de transmission.
@@ -125,7 +146,7 @@ PORTB = 0b00000000;
  *  Permet d'effectuer la transmission
  */
 
-void USART_Transmit(unsigned char data)
+void USART0_Transmit(unsigned char data)
 {
 /* Wait for empty transmit buffer */
 while (!(UCSR0A & (1<<UDRE0)))
@@ -134,12 +155,21 @@ while (!(UCSR0A & (1<<UDRE0)))
 UDR0 = data;
 }
 
+void USART3_Transmit(unsigned char data)
+{
+/* Wait for empty transmit buffer */
+while (!(UCSR3A & (1<<UDRE3)))
+;
+/* Put data into buffer, sends the data */
+UDR3 = data;
+}
+
 /*! \brief Fonction de reception.
  *
  *  Permet d'effectuer la reception
  */
 
-unsigned char USART_Receive(void)
+unsigned char USART0_Receive(void)
 {
 /* Wait for data to be received */
 while (!(UCSR0A & (1<<RXC0)))
@@ -147,3 +177,13 @@ while (!(UCSR0A & (1<<RXC0)))
 /* Get and return received data from buffer */
 return UDR0;
 }
+
+unsigned char USART3_Receive(void)
+{
+/* Wait for data to be received */
+while (!(UCSR3A & (1<<RXC3)))
+;
+/* Get and return received data from buffer */
+return UDR3;
+}
+
