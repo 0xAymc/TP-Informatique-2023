@@ -1,9 +1,10 @@
-/* This file has been prepared for Doxygen automatic documentation generation.*/
 
-/*! \mainpage *********************************************************************
+/*!
+
+\mainpage 
  *
  * \section Introduction
- *      Utilisaion du port série sur Arduino Mega
+ *      Utilisation du port série sur Arduino Mega
  * 
  * \author
  *      MCHARFI Ayman
@@ -17,7 +18,7 @@
 /*! \file *********************************************************************
  *
  * \brief
- *      Utilisaion du port série sur Arduino Mega
+ *      Utilisation du port série sur Arduino Mega
  * \author
  *      MCHARFI Ayman
  *
@@ -27,33 +28,33 @@
  ******************************************************************************/
 
 
-#define FOSC 16000000 // Clock Speed
-#define BAUD 9600
-#define MYUBRR FOSC/16/BAUD-1
+//! Fréquence du processeur
+#define FOSC 16000000 
+//! Taux de bauds pour la communication série
+#define BAUD 9600      
+//! Calcul du registre UBRR
+#define MYUBRR FOSC/16/BAUD-1 
 
-
-
-
-unsigned char data;
-unsigned char flag0 = 0;
-unsigned char flag3 = 0;
+//! Variable pour stocker les données reçues
+unsigned char data;        
+//! Drapeau d'interruption pour USART0
+unsigned char flag0 = 0;   
+//! Drapeau d'interruption pour USART3
+unsigned char flag3 = 0;   
 
 /*! \brief Fonction d'interruption
  *
- * Permet d'effectuer la reception uniquement lorsqu'on transmet
- * Cela evite que le microprocesseur reste bloqué sur l'attente d'une transmission 
- *
+ * Permet d'effectuer la réception uniquement lorsqu'on transmet.
+ * Cela évite que le microprocesseur reste bloqué sur l'attente d'une transmission.
  */
-
-
 ISR(USART0_RX_vect){
-data = UDR0;
-flag0 = 1;
+    data = UDR0;
+    flag0 = 1;
 }
 
 ISR(USART3_RX_vect){
-data = UDR3;
-flag3 = 1;
+    data = UDR3;
+    flag3 = 1;
 }
 
 /*! \brief Fonction Main
@@ -61,129 +62,126 @@ flag3 = 1;
  *  La fonction main permet d'initialiser l'USART
  *  et d'effectuer son code
  */
-
 int main(void)
 {
+    // Initialisation de l'USART0 et de l'USART3
+    USART0_Init(MYUBRR);    
+    USART3_Init(MYUBRR);
 
-USART0_Init(MYUBRR);
-USART3_Init(MYUBRR);
+    // Activation des interruptions globales
+    sei();
 
-sei();
-
-while(1){
-  if (flag3){
-  USART0_Transmit(data);
-  flag3 = 0;
-  }
-  if (flag0){
-  USART3_Transmit(data);
-  flag0 = 0;
-  }
-_delay_ms(1);
-}
-
+    // Boucle principale
+    while(1){
+        // Transmission des données de USART3 vers USART0
+        if (flag3){
+            USART0_Transmit(data);
+            flag3 = 0;
+        }
+        // Transmission des données de USART0 vers USART3
+        if (flag0){
+            USART3_Transmit(data);
+            flag0 = 0;
+        }
+        _delay_ms(1);
+    }
 }
 
 /*! \brief Fonction USART_puts
  *
- *  La fonction permet de lire et transmettre une chaine de caractères
- *  Elle pointe vers chaque char de la chaine
+ *  La fonction permet de lire et transmettre une chaîne de caractères.
+ *  Elle pointe vers chaque char de la chaîne.
  */
 
 
 void USART_puts(unsigned char *str)
 {
-do
-{
-USART_Transmit(*str);
-} while (*++str!=0);
+    do {
+        USART0_Transmit(*str);
+    } while (*++str != 0);
 }
 
 
 /*! \brief Fonction USART_putsln
  *
- *  La fonction permet de faire la même chose que la fonction USART_puts mais avec un retour a la ligne a chaque envoi
- *  
+ *  La fonction permet de faire la même chose que la fonction USART_puts mais avec un retour à la ligne à chaque envoi.
+
  */
 
 void USART_putsln(unsigned char *str)
 {
-USART_puts(str);
-USART_Transmit('\n');
-USART_Transmit('\r');
+    // Transmission de la chaîne suivie d'un retour à la ligne et d'un retour chariot
+    USART_puts(str);
+    USART0_Transmit('\n');
+    USART0_Transmit('\r');
 }
 
 
 /*! \brief Initialisation de l'USART.
  *
- *  Permet de configurer les registres
+ *  Permet de configurer les registres.
  */
-
 void USART0_Init(unsigned int ubrr)
 {  
-/*Set baud rate */
-UBRR0H = (unsigned char)(ubrr>>8);
-UBRR0L = (unsigned char)ubrr;
-/*Enable receiver and transmitter */
-UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
-/* Set frame format: 8data, 2stop bit */
-UCSR0C = (3<<UCSZ00);
+    /* Configuration du taux de bauds */
+    UBRR0H = (unsigned char)(ubrr>>8);
+    UBRR0L = (unsigned char)ubrr;
+    /* Activer le récepteur et l'émetteur avec interruption de réception */
+    UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
+    /* Configuration du format de trame : 8 bits de données, 2 bits d'arrêt */
+    UCSR0C = (3<<UCSZ00);
 }
 
+//! Initialisation de l'USART3 avec la même configuration que l'USART0
 void USART3_Init(unsigned int ubrr)
 {  
-/*Set baud rate */
-UBRR3H = (unsigned char)(ubrr>>8);
-UBRR3L = (unsigned char)ubrr;
-/*Enable receiver and transmitter */
-UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
-/* Set frame format: 8data, 2stop bit */
-UCSR3C = (3<<UCSZ30);
+    /* Configuration du taux de bauds */
+    UBRR3H = (unsigned char)(ubrr>>8);
+    UBRR3L = (unsigned char)ubrr;
+    /* Activer le récepteur et l'émetteur avec interruption de réception */
+    UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
+    /* Configuration du format de trame : 8 bits de données, 2 bits d'arrêt */
+    UCSR3C = (3<<UCSZ30);
 }
 
 /*! \brief Fonction de transmission.
  *
- *  Permet d'effectuer la transmission
+ *  Permet d'effectuer la transmission.
  */
-
 void USART0_Transmit(unsigned char data)
 {
-/* Wait for empty transmit buffer */
-while (!(UCSR0A & (1<<UDRE0)))
-;
-/* Put data into buffer, sends the data */
-UDR0 = data;
+    /* Attendre que le tampon de transmission soit vide */
+    while (!(UCSR0A & (1<<UDRE0)));
+    /* Mettre les données dans le tampon, envoie les données */
+    UDR0 = data;
 }
 
+//! Fonction de transmission pour USART3 avec la même configuration que USART0_Transmit
 void USART3_Transmit(unsigned char data)
 {
-/* Wait for empty transmit buffer */
-while (!(UCSR3A & (1<<UDRE3)))
-;
-/* Put data into buffer, sends the data */
-UDR3 = data;
+    /* Attendre que le tampon de transmission soit vide */
+    while (!(UCSR3A & (1<<UDRE3)));
+    /* Mettre les données dans le tampon, envoie les données */
+    UDR3 = data;
 }
 
-/*! \brief Fonction de reception.
+/*! \brief Fonction de réception.
  *
- *  Permet d'effectuer la reception
+ *  Permet d'effectuer la réception.
  */
-
 unsigned char USART0_Receive(void)
 {
-/* Wait for data to be received */
-while (!(UCSR0A & (1<<RXC0)))
-;
-/* Get and return received data from buffer */
-return UDR0;
+    /* Attendre que des données soient reçues */
+    while (!(UCSR0A & (1<<RXC0)));
+    /* Obtenir et renvoyer les données reçues du tampon */
+    return UDR0;
 }
 
+//! Fonction de réception pour USART3 avec la même configuration que USART0_Receive
 unsigned char USART3_Receive(void)
 {
-/* Wait for data to be received */
-while (!(UCSR3A & (1<<RXC3)))
-;
-/* Get and return received data from buffer */
-return UDR3;
+    /* Attendre que des données soient reçues */
+    while (!(UCSR3A & (1<<RXC3)));
+    /* Obtenir et renvoyer les données reçues du tampon */
+    return UDR3;
 }
-
