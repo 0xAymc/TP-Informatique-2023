@@ -3,12 +3,12 @@
 /*! \mainpage *********************************************************************
  *
  * \section Introduction
- *      Utilisaion du port série sur Arduino Uno
+ *      Utilisaion du port série sur Arduino Mega
  * 
  * \author
  *      MCHARFI Ayman
  *
- * $Name: TP1 $
+ * $Name: Atelier_1 $
  * $Revision: 1.0 $
  * $Date: 23/11/2023 $  \n
  ******************************************************************************/
@@ -17,11 +17,11 @@
 /*! \file *********************************************************************
  *
  * \brief
- *      Utilisaion du port série sur Arduino Uno
+ *      Utilisaion du port série sur Arduino Mega
  * \author
  *      MCHARFI Ayman
  *
- * $Name: TP1 $
+ * $Name: Atelier_1 $
  * $Revision: 1.0 $
  * $Date: 23/11/2023 $  \n
  ******************************************************************************/
@@ -90,7 +90,7 @@ _delay_ms(1);
  *  Elle pointe vers chaque char de la chaine
  */
 
-/*
+
 void USART_puts(unsigned char *str)
 {
 do
@@ -98,7 +98,7 @@ do
 USART_Transmit(*str);
 } while (*++str!=0);
 }
-*/
+
 
 /*! \brief Fonction USART_putsln
  *
@@ -106,13 +106,13 @@ USART_Transmit(*str);
  *  
  */
 
-/*void USART_putsln(unsigned char *str)
+void USART_putsln(unsigned char *str)
 {
 USART_puts(str);
 USART_Transmit('\n');
 USART_Transmit('\r');
 }
-*/
+
 
 /*! \brief Initialisation de l'USART.
  *
