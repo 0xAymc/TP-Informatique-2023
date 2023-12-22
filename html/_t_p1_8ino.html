@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Communication série asynchrone: Référence du fichier TP1/TP1.ino</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="serie0.gif"/></td>
+  <td id="projectalign">
+   <div id="projectname">Communication série asynchrone
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_12316992d12d45b6562943338383b514.html">TP1</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier TP1.ino</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Utilisation du port série sur Arduino Mega.  
+<a href="#details">Plus de détails...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a802b2b582b121e4632aa9a491d503720" id="r_a802b2b582b121e4632aa9a491d503720"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a802b2b582b121e4632aa9a491d503720">FOSC</a>&#160;&#160;&#160;16000000</td></tr>
+<tr class="memdesc:a802b2b582b121e4632aa9a491d503720"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fréquence du processeur.  <br /></td></tr>
+<tr class="separator:a802b2b582b121e4632aa9a491d503720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62634036639f88eece6fbf226b45f84b" id="r_a62634036639f88eece6fbf226b45f84b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a62634036639f88eece6fbf226b45f84b">BAUD</a>&#160;&#160;&#160;9600</td></tr>
+<tr class="memdesc:a62634036639f88eece6fbf226b45f84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taux de bauds pour la communication série.  <br /></td></tr>
+<tr class="separator:a62634036639f88eece6fbf226b45f84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a711e9130c825a7269c8c87dbb57a85e0" id="r_a711e9130c825a7269c8c87dbb57a85e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a711e9130c825a7269c8c87dbb57a85e0">MYUBRR</a>&#160;&#160;&#160;<a class="el" href="_t_p1_8ino.html#a802b2b582b121e4632aa9a491d503720">FOSC</a>/16/<a class="el" href="_t_p1_8ino.html#a62634036639f88eece6fbf226b45f84b">BAUD</a>-1</td></tr>
+<tr class="memdesc:a711e9130c825a7269c8c87dbb57a85e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul du registre UBRR.  <br /></td></tr>
+<tr class="separator:a711e9130c825a7269c8c87dbb57a85e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a084f0a9cf05b1877bd8a71a90dae7ff8" id="r_a084f0a9cf05b1877bd8a71a90dae7ff8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a084f0a9cf05b1877bd8a71a90dae7ff8">ISR</a> (USART0_RX_vect)</td></tr>
+<tr class="memdesc:a084f0a9cf05b1877bd8a71a90dae7ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'interruption.  <br /></td></tr>
+<tr class="separator:a084f0a9cf05b1877bd8a71a90dae7ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e32db0cad75219c51253f5c1052fc0" id="r_a88e32db0cad75219c51253f5c1052fc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a88e32db0cad75219c51253f5c1052fc0">ISR</a> (USART3_RX_vect)</td></tr>
+<tr class="separator:a88e32db0cad75219c51253f5c1052fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction Main.  <br /></td></tr>
+<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6e9fd192b4aa0d1342af41edb7e8db6" id="r_ab6e9fd192b4aa0d1342af41edb7e8db6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#ab6e9fd192b4aa0d1342af41edb7e8db6">USART_puts</a> (unsigned char *str)</td></tr>
+<tr class="memdesc:ab6e9fd192b4aa0d1342af41edb7e8db6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction USART_puts.  <br /></td></tr>
+<tr class="separator:ab6e9fd192b4aa0d1342af41edb7e8db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7c73c0d7e8336a24455e4e5208529e5" id="r_ac7c73c0d7e8336a24455e4e5208529e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#ac7c73c0d7e8336a24455e4e5208529e5">USART_putsln</a> (unsigned char *str)</td></tr>
+<tr class="memdesc:ac7c73c0d7e8336a24455e4e5208529e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction USART_putsln.  <br /></td></tr>
+<tr class="separator:ac7c73c0d7e8336a24455e4e5208529e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f365b495a8eb13a9d535793870486a5" id="r_a8f365b495a8eb13a9d535793870486a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a8f365b495a8eb13a9d535793870486a5">USART0_Init</a> (unsigned int ubrr)</td></tr>
+<tr class="memdesc:a8f365b495a8eb13a9d535793870486a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation de l'USART.  <br /></td></tr>
+<tr class="separator:a8f365b495a8eb13a9d535793870486a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97b47d15101906b212f264af548c9fb2" id="r_a97b47d15101906b212f264af548c9fb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a97b47d15101906b212f264af548c9fb2">USART3_Init</a> (unsigned int ubrr)</td></tr>
+<tr class="memdesc:a97b47d15101906b212f264af548c9fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation de l'USART3 avec la même configuration que l'USART0.  <br /></td></tr>
+<tr class="separator:a97b47d15101906b212f264af548c9fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed8a68edcbbe290b23ad69a1b63f1f4" id="r_a7ed8a68edcbbe290b23ad69a1b63f1f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a7ed8a68edcbbe290b23ad69a1b63f1f4">USART0_Transmit</a> (unsigned char <a class="el" href="_t_p1_8ino.html#a433b1c9921d3b90f7c145c781a43f325">data</a>)</td></tr>
+<tr class="memdesc:a7ed8a68edcbbe290b23ad69a1b63f1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de transmission.  <br /></td></tr>
+<tr class="separator:a7ed8a68edcbbe290b23ad69a1b63f1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c06fb5953b63194b5a1bad2f4963721" id="r_a5c06fb5953b63194b5a1bad2f4963721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a5c06fb5953b63194b5a1bad2f4963721">USART3_Transmit</a> (unsigned char <a class="el" href="_t_p1_8ino.html#a433b1c9921d3b90f7c145c781a43f325">data</a>)</td></tr>
+<tr class="memdesc:a5c06fb5953b63194b5a1bad2f4963721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de transmission pour USART3 avec la même configuration que USART0_Transmit.  <br /></td></tr>
+<tr class="separator:a5c06fb5953b63194b5a1bad2f4963721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b69606c617a17c66df60fe757ff86ef" id="r_a9b69606c617a17c66df60fe757ff86ef"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a9b69606c617a17c66df60fe757ff86ef">USART0_Receive</a> (void)</td></tr>
+<tr class="memdesc:a9b69606c617a17c66df60fe757ff86ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de réception.  <br /></td></tr>
+<tr class="separator:a9b69606c617a17c66df60fe757ff86ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46859efd006d10fc3121dc7d7bb36016" id="r_a46859efd006d10fc3121dc7d7bb36016"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a46859efd006d10fc3121dc7d7bb36016">USART3_Receive</a> (void)</td></tr>
+<tr class="memdesc:a46859efd006d10fc3121dc7d7bb36016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de réception pour USART3 avec la même configuration que USART0_Receive.  <br /></td></tr>
+<tr class="separator:a46859efd006d10fc3121dc7d7bb36016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a433b1c9921d3b90f7c145c781a43f325" id="r_a433b1c9921d3b90f7c145c781a43f325"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#a433b1c9921d3b90f7c145c781a43f325">data</a></td></tr>
+<tr class="memdesc:a433b1c9921d3b90f7c145c781a43f325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable pour stocker les données reçues.  <br /></td></tr>
+<tr class="separator:a433b1c9921d3b90f7c145c781a43f325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af903557799188d7334bca665668ded9a" id="r_af903557799188d7334bca665668ded9a"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#af903557799188d7334bca665668ded9a">flag0</a> = 0</td></tr>
+<tr class="memdesc:af903557799188d7334bca665668ded9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drapeau d'interruption pour USART0.  <br /></td></tr>
+<tr class="separator:af903557799188d7334bca665668ded9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacd7c6012db7bc3ff70d264adeed1406" id="r_aacd7c6012db7bc3ff70d264adeed1406"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_p1_8ino.html#aacd7c6012db7bc3ff70d264adeed1406">flag3</a> = 0</td></tr>
+<tr class="memdesc:aacd7c6012db7bc3ff70d264adeed1406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drapeau d'interruption pour USART3.  <br /></td></tr>
+<tr class="separator:aacd7c6012db7bc3ff70d264adeed1406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Utilisation du port série sur Arduino Mega. </p>
+<dl class="section author"><dt>Auteur</dt><dd>MCHARFI Ayman</dd></dl>
+<dl class="section rcs"><dt>Name</dt><dd>Atelier_1 </dd></dl>
+<dl class="section rcs"><dt>Revision</dt><dd>1.0 </dd></dl>
+<dl class="section rcs"><dt>Date</dt><dd>23/11/2023 </dd></dl>
+<p><br  />
+</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a62634036639f88eece6fbf226b45f84b" name="a62634036639f88eece6fbf226b45f84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62634036639f88eece6fbf226b45f84b">&#9670;&#160;</a></span>BAUD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAUD&#160;&#160;&#160;9600</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Taux de bauds pour la communication série. </p>
+
+</div>
+</div>
+<a id="a802b2b582b121e4632aa9a491d503720" name="a802b2b582b121e4632aa9a491d503720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a802b2b582b121e4632aa9a491d503720">&#9670;&#160;</a></span>FOSC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FOSC&#160;&#160;&#160;16000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fréquence du processeur. </p>
+
+</div>
+</div>
+<a id="a711e9130c825a7269c8c87dbb57a85e0" name="a711e9130c825a7269c8c87dbb57a85e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711e9130c825a7269c8c87dbb57a85e0">&#9670;&#160;</a></span>MYUBRR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MYUBRR&#160;&#160;&#160;<a class="el" href="_t_p1_8ino.html#a802b2b582b121e4632aa9a491d503720">FOSC</a>/16/<a class="el" href="_t_p1_8ino.html#a62634036639f88eece6fbf226b45f84b">BAUD</a>-1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcul du registre UBRR. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a084f0a9cf05b1877bd8a71a90dae7ff8" name="a084f0a9cf05b1877bd8a71a90dae7ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a084f0a9cf05b1877bd8a71a90dae7ff8">&#9670;&#160;</a></span>ISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISR </td>
+          <td>(</td>
+          <td class="paramtype">USART0_RX_vect&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'interruption. </p>
+<p>Permet d'effectuer la réception uniquement lorsqu'on transmet. Cela évite que le microprocesseur reste bloqué sur l'attente d'une transmission. </p>
+
+</div>
+</div>
+<a id="a88e32db0cad75219c51253f5c1052fc0" name="a88e32db0cad75219c51253f5c1052fc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e32db0cad75219c51253f5c1052fc0">&#9670;&#160;</a></span>ISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISR </td>
+          <td>(</td>
+          <td class="paramtype">USART3_RX_vect&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction Main. </p>
+<p>La fonction main permet d'initialiser l'USART et d'effectuer son code </p>
+
+</div>
+</div>
+<a id="a8f365b495a8eb13a9d535793870486a5" name="a8f365b495a8eb13a9d535793870486a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f365b495a8eb13a9d535793870486a5">&#9670;&#160;</a></span>USART0_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void USART0_Init </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>ubrr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation de l'USART. </p>
+<p>Permet de configurer les registres. </p>
+
+</div>
+</div>
+<a id="a9b69606c617a17c66df60fe757ff86ef" name="a9b69606c617a17c66df60fe757ff86ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b69606c617a17c66df60fe757ff86ef">&#9670;&#160;</a></span>USART0_Receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char USART0_Receive </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de réception. </p>
+<p>Permet d'effectuer la réception. </p>
+
+</div>
+</div>
+<a id="a7ed8a68edcbbe290b23ad69a1b63f1f4" name="a7ed8a68edcbbe290b23ad69a1b63f1f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed8a68edcbbe290b23ad69a1b63f1f4">&#9670;&#160;</a></span>USART0_Transmit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void USART0_Transmit </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de transmission. </p>
+<p>Permet d'effectuer la transmission. </p>
+
+</div>
+</div>
+<a id="a97b47d15101906b212f264af548c9fb2" name="a97b47d15101906b212f264af548c9fb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97b47d15101906b212f264af548c9fb2">&#9670;&#160;</a></span>USART3_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void USART3_Init </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>ubrr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation de l'USART3 avec la même configuration que l'USART0. </p>
+
+</div>
+</div>
+<a id="a46859efd006d10fc3121dc7d7bb36016" name="a46859efd006d10fc3121dc7d7bb36016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46859efd006d10fc3121dc7d7bb36016">&#9670;&#160;</a></span>USART3_Receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char USART3_Receive </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de réception pour USART3 avec la même configuration que USART0_Receive. </p>
+
+</div>
+</div>
+<a id="a5c06fb5953b63194b5a1bad2f4963721" name="a5c06fb5953b63194b5a1bad2f4963721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c06fb5953b63194b5a1bad2f4963721">&#9670;&#160;</a></span>USART3_Transmit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void USART3_Transmit </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de transmission pour USART3 avec la même configuration que USART0_Transmit. </p>
+
+</div>
+</div>
+<a id="ab6e9fd192b4aa0d1342af41edb7e8db6" name="ab6e9fd192b4aa0d1342af41edb7e8db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6e9fd192b4aa0d1342af41edb7e8db6">&#9670;&#160;</a></span>USART_puts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void USART_puts </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction USART_puts. </p>
+<p>La fonction permet de lire et transmettre une chaîne de caractères. Elle pointe vers chaque char de la chaîne. </p>
+
+</div>
+</div>
+<a id="ac7c73c0d7e8336a24455e4e5208529e5" name="ac7c73c0d7e8336a24455e4e5208529e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c73c0d7e8336a24455e4e5208529e5">&#9670;&#160;</a></span>USART_putsln()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void USART_putsln </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction USART_putsln. </p>
+<p>La fonction permet de faire la même chose que la fonction USART_puts mais avec un retour à la ligne à chaque envoi. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a433b1c9921d3b90f7c145c781a43f325" name="a433b1c9921d3b90f7c145c781a43f325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433b1c9921d3b90f7c145c781a43f325">&#9670;&#160;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable pour stocker les données reçues. </p>
+
+</div>
+</div>
+<a id="af903557799188d7334bca665668ded9a" name="af903557799188d7334bca665668ded9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af903557799188d7334bca665668ded9a">&#9670;&#160;</a></span>flag0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char flag0 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Drapeau d'interruption pour USART0. </p>
+
+</div>
+</div>
+<a id="aacd7c6012db7bc3ff70d264adeed1406" name="aacd7c6012db7bc3ff70d264adeed1406"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacd7c6012db7bc3ff70d264adeed1406">&#9670;&#160;</a></span>flag3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char flag3 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Drapeau d'interruption pour USART3. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
