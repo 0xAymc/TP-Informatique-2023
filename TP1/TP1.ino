@@ -128,7 +128,7 @@ void USART0_Init(unsigned int ubrr)
     UBRR0L = (unsigned char)ubrr;
     /* Activer le récepteur et l'émetteur avec interruption de réception */
     UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
-    /* Configuration du format de trame : 8 bits de données, 2 bits d'arrêt */
+    /* Configuration du format de trame : 8 bits de données, 1 bits d'arrêt */
     UCSR0C = (3<<UCSZ00);
 }
 
@@ -140,7 +140,7 @@ void USART3_Init(unsigned int ubrr)
     UBRR3L = (unsigned char)ubrr;
     /* Activer le récepteur et l'émetteur avec interruption de réception */
     UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
-    /* Configuration du format de trame : 8 bits de données, 2 bits d'arrêt */
+    /* Configuration du format de trame : 8 bits de données, 1 bits d'arrêt */
     UCSR3C = (3<<UCSZ30);
 }
 
